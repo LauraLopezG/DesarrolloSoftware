@@ -3,11 +3,15 @@
     session_start();
     // session_destroy();
     require_once "models/DataBase.php";
+<<<<<<< HEAD
     $allowed = ['Landing', 'Login', 'Dashboard', 'Users'];
     $controller = isset($_REQUEST['c']) ? $_REQUEST['c'] : "Landing";
     if (!in_array($controller, $allowed)) {
     $controller = "Landing"; // 
 }
+=======
+    $controller = isset($_REQUEST['c']) ? $_REQUEST['c'] : "Landing";
+>>>>>>> 1c38821efa14c73d8f32a9f511ef5080ea4b0352
     $route_controller = "controllers/" . $controller . ".php";
     if (file_exists($route_controller)) {
         $view = $controller;
