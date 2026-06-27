@@ -51,37 +51,40 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_name" class="bmd-label-floating">Nombres</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="user_name" id="user_name" maxlength="35">
+										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="user_name" id="user_name" maxlength="35" required>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_lastname" class="bmd-label-floating">Apellidos</label>
-										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,35}" class="form-control" name="user_lastname" id="user_lastname" maxlength="35">
+										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="user_lastname" id="user_lastname" maxlength="35" required>
+						required>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_id" class="bmd-label-floating">Identificación</label>
-										<input type="text" pattern="[0-9()+]{1,20}" class="form-control" name="user_id" id="user_id" maxlength="20">
+										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="user_id" id="user_id" maxlength="20"
+										required>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_email" class="bmd-label-floating">Email</label>
-										<input type="email" class="form-control" name="user_email" id="user_email" maxlength="70">
+										<input type="email" class="form-control" name="user_email" id="user_email" maxlength="70"
+										required>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_pass" class="bmd-label-floating">Contraseña</label>
-										<input type="password" class="form-control" name="user_pass" id="user_pass" maxlength="200">
+										<input type="password" class="form-control" name="user_pass" id="user_pass" maxlength="200" required>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_pass_conf" class="bmd-label-floating">Repetir contraseña</label>
-										<input type="password" class="form-control" name="user_pass_conf" id="user_pass_conf" maxlength="200">
+										<input type="password" class="form-control" name="user_pass_conf" id="user_pass_conf" maxlength="200"required>
 									</div>
 								</div>
 							</div>
