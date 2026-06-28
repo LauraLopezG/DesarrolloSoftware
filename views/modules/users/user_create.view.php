@@ -1,9 +1,8 @@
 			<!-- Page header -->
 			<div class="full-box page-header">
-				<h3 class="text-left">
-					<i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO USUARIO
+				<h3 class="text-left" style="color:red;">
+   				 PRUEBA CHATGPT
 				</h3>
-
 			</div>
 
 			<div class="container-fluid">
@@ -30,7 +29,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="rol_code" class="bmd-label-floating">Rol</label>
-										<select class="form-control" name="rol_code">
+										<select class="form-control" name="rol_code" required>	
 											<option value="" selected="" disabled="">Seleccione una opción</option>
 											<?php foreach ($roles as $rol) : ?>
 												<option value="<?php echo $rol->getRolCode() ?>"><?php echo $rol->getRolName() ?></option>
@@ -41,7 +40,7 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_state" class="bmd-label-floating">Estado</label>
-										<select class="form-control" name="user_state">
+										<select class="form-control" name="user_state" required>
 											<option value="" selected="" disabled="">Seleccione una opción</option>
 											<option value="1">Activo</option>
 											<option value="0">Inactivo</option>
@@ -51,14 +50,14 @@
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_name" class="bmd-label-floating">Nombres</label>
-										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="user_name" id="user_name" maxlength="35" required>
+										<input type="text" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,35}" class="form-control" name="user_name" id="user_name" maxlength="35" required>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group">
 										<label for="user_lastname" class="bmd-label-floating">Apellidos</label>
-										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="user_lastname" id="user_lastname" maxlength="35" required>
-						required>
+										<input type="text" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,35}"  class="form-control" name="user_lastname" id="user_lastname" maxlength="35" required>
+						
 									</div>
 								</div>
 								<div class="col-12 col-md-6">

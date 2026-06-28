@@ -72,30 +72,75 @@
         }
 
         // Controlador Crear Usuario
-        public function userCreate(){
-            if ($this->session == 'admin' || $this->session == 'seller') {
-                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                    $roles = new User;
-                    $roles = $roles->read_roles();
-                    require_once "views/modules/users/user_create.view.php";
-                }
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $user = new User(
-                        $_POST['rol_code'],
-                        null,
-                        $_POST['user_name'],
-                        $_POST['user_lastname'],
-                        $_POST['user_id'],
-                        $_POST['user_email'],
-                        $_POST['user_pass'],
-                        $_POST['user_state']
-                    );
-                    $user->create_user();
-                    header("Location: ?c=Users&a=userRead");
-                }
-            } else {
-                header("Location: ?c=Dashboard");
+public function userCreate(){
+
+    if ($this->session == 'admin' || $this->session == 'seller') {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+            $roles = new User;
+            $roles = $roles->read_roles();
+
+            require_once "views/modules/users/user_create.view.php";
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            // Validar campos obligatorios
+            if (
+                empty($_POST['rol_code']) ||
+                empty($_POST['user_name']) ||
+                empty($_POST['user_lastname']) ||
+                empty($_POST['user_id']) ||
+                empty($_POST['user_email']) ||
+                empty($_POST['user_pass']) ||
+                $_POST['user_state'] === ""
+            ) {
+
+                echo "<script>
+                        alert('Todos los campos son obligatorios');
+                        window.history.back();
+                      </script>";
+                exit();
+
             }
+            // Validar que las contraseñas coincidan
+                if ($_POST['user_pass'] != $_POST['user_pass_conf']) {
+
+                     echo "<script>
+                    alert('Las contraseñas no coinciden');
+                    window.history.back();
+                        </script>";
+         exit();
+
+}
+
+            $user = new User(
+                $_POST['rol_code'],
+                null,
+                $_POST['user_name'],
+                $_POST['user_lastname'],
+                $_POST['user_id'],
+                $_POST['user_email'],
+                $_POST['user_pass'],
+                $_POST['user_state']
+            );
+
+            $user->create_user();
+
+            header("Location: ?c=Users&a=userRead");
+            exit();
+
+        }
+
+    } else {
+
+        header("Location: ?c=Dashboard");
+        exit();
+
+    }
+
+
         }
 
         // Controlador Consultar Usuarios
